@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.WeatherRealTimeActivity">
+
+    <fragment
+        android:id="@+id/fl_title"
+        android:name="edu.hsl.myappweather.fragment.TitleFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        android:id="@+id/fl_week_info_weather"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <fragment
+                android:id="@+id/fl_real_time_weather"
+                android:name="edu.hsl.myappweather.fragment.RealTimeWeatherFragment"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+            <FrameLayout
+                android:id="@+id/fl_week_weather"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#044d91"/>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
