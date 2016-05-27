@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:background="#2854e6">
 
         <TextView
@@ -51,6 +51,7 @@
 
         <TextView
             android:id="@+id/tv_des"
+            android:textSize="12sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/tv_data_time"
