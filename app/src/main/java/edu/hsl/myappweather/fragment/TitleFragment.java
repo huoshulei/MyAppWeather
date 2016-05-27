@@ -3,6 +3,7 @@ package edu.hsl.myappweather.fragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,6 @@ public class TitleFragment extends Fragment {
     ImageView   mImageView;
     PopupWindow window;
     PopupWindow window1;
-    private static final String TAG = "TitleFragment";
 
     @Nullable
     @Override
@@ -37,7 +37,12 @@ public class TitleFragment extends Fragment {
     }
 
     public void initEvent() {
-        mImageView.setOnClickListener(new View.OnClickListener() {
+        mImageView.setOnClickListener(getL());
+    }
+
+    @NonNull
+    private View.OnClickListener getL() {
+        return new View.OnClickListener() {
             CityAdapter adapter;
 
             @Override
@@ -59,36 +64,46 @@ public class TitleFragment extends Fragment {
                 window.setOutsideTouchable(true);
                 window.showAsDropDown(getView(), xPos, 0);
                 assert listView != null;
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        ListView          listViewCity = null;
-                        final CityAdapter adapter1     = new CityAdapter(getActivity(), CityUtil.CityName.getData(i));
-                        if (window1 == null) {
-                            View inflater = View.inflate(getActivity(), R.layout.layout_city_name_list, null);
-                            listViewCity = (ListView) inflater.findViewById(R.id.lv_city_name);
-                            listViewCity.setAdapter(adapter1);
-                            window1 = new PopupWindow(inflater, 300, height);
-                        }
-                        int xPos = (int) (manager.getDefaultDisplay().getWidth() / 1.9);
-                        window1.setFocusable(true);
-                        window1.setOutsideTouchable(true);
-                        window1.showAsDropDown(getView(), xPos, 0);
-                        assert listViewCity != null;
-                        listViewCity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                WeatherRealTimeActivity activity = (WeatherRealTimeActivity) getActivity();
-                                activity.asyncTask(adapter1.getItem(i));
-                                window1.dismiss();
-                            }
-                        });
-                        window.dismiss();
-                    }
-                });
+                listView.setOnItemClickListener(getListener(manager, height));
             }
-        });
+        };
+    }
+
+    @NonNull
+    private AdapterView.OnItemClickListener getListener(final WindowManager manager, final int height) {
+        return new AdapterView.OnItemClickListener() {
+
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ListView          listViewCity = null;
+                final CityAdapter adapter      = new CityAdapter(getActivity(), CityUtil.CityName.getData(i));
+                if (window1 == null) {
+                    View inflater = View.inflate(getActivity(), R.layout.layout_city_name_list, null);
+                    listViewCity = (ListView) inflater.findViewById(R.id.lv_city_name);
+                    listViewCity.setAdapter(adapter);
+                    window1 = new PopupWindow(inflater, 300, height);
+                }
+                int xPos = (int) (manager.getDefaultDisplay().getWidth() / 1.9);
+                window1.setFocusable(true);
+                window1.setOutsideTouchable(true);
+                window1.showAsDropDown(getView(), xPos, 0);
+                assert listViewCity != null;
+                listViewCity.setOnItemClickListener(getListenercity(adapter));
+                window.dismiss();
+            }
+        };
+    }
+
+    @NonNull
+    private AdapterView.OnItemClickListener getListenercity(final CityAdapter adapter) {
+        return new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                WeatherRealTimeActivity activity = (WeatherRealTimeActivity) getActivity();
+                activity.asyncTask(adapter.getItem(i));
+                window1.dismiss();
+            }
+        };
     }
 }
