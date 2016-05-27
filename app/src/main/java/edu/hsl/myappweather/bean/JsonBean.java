@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2016/5/26.
+ * Gson解析封装类
  */
 public class JsonBean {
     private String     reason;

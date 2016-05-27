@@ -15,6 +15,7 @@ import edu.hsl.myappweather.util.WeatherUtil;
 
 /**
  * Created by Administrator on 2016/5/26.
+ * 一周天气
  */
 public class WeekAdapter extends BaseAdapter {
     LayoutInflater inflater;

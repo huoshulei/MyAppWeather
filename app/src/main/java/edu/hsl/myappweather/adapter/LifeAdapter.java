@@ -14,6 +14,7 @@ import edu.hsl.myappweather.bean.LifeListBean;
 
 /**
  * Created by Administrator on 2016/5/26.
+ * 生活指数
  */
 public class LifeAdapter extends BaseAdapter {
     LayoutInflater inflater;

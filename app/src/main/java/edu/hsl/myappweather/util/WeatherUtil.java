@@ -1,7 +1,6 @@
 package edu.hsl.myappweather.util;
 
 import android.net.Uri;
-import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -27,9 +26,12 @@ public class WeatherUtil {
     public final static  String KEY       = "key";
     private static final String TAG       = "TitleFragment";
 
+    /**
+     * 通过构造函数调用getJson()方法读取网络数据
+     * 仅支持国内城市
+     */
     public WeatherUtil(String city_name) {
         getJson(city_name);
-        Log.d(TAG, "getJson: 1" + city_name);
     }
 
     private static String json;
@@ -37,7 +39,6 @@ public class WeatherUtil {
     private static void getJson(String city_name) {
         StringBuffer      sb            = null;
         HttpURLConnection urlConnection = null;
-        Log.d(TAG, "getJson:2 " + city_name);
         try {
             sb = new StringBuffer();
             String uri = Uri.parse(URL).buildUpon()
@@ -59,7 +60,6 @@ public class WeatherUtil {
             inputStream.close();
             reader.close();
         } catch (IOException e) {
-            Log.d(TAG, "getJson:3 " + city_name);
             e.printStackTrace();
         } finally {
             if (urlConnection != null) {
@@ -69,6 +69,9 @@ public class WeatherUtil {
         json = sb.toString();
     }
 
+    /**
+     * 通过Gson解析读取的Json数据
+     */
     public static JsonBean getJsonBean() {
         Gson     gson     = new Gson();
         JsonBean jsonBean = gson.fromJson(json, JsonBean.class);

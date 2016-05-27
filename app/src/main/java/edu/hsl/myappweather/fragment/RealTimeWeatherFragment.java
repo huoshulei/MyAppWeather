@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +38,7 @@ public class RealTimeWeatherFragment extends Fragment {
     ImageView           imageView;
     PM25LifeFragment    pm25;
     WeekWearherFragment week;
-    boolean isReal = true;
+    boolean isReal = true;//判断当前显示的fragment是否是七天数据页面
 
     @Nullable
     @Override
@@ -54,7 +55,16 @@ public class RealTimeWeatherFragment extends Fragment {
         tv_week = (TextView) view.findViewById(R.id.tv_week);//星期
         tv_moon = (TextView) view.findViewById(R.id.tv_moon);//农历日期
         imageView = (ImageView) view.findViewById(R.id.imageView);
-        view.findViewById(R.id.rl_real).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.rl_real).setOnClickListener(getListener());
+        return view;
+    }
+
+    /**
+     * 根据当前显示的fragment更换显示另一fragment
+     */
+    @NonNull
+    private View.OnClickListener getListener() {
+        return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager     fm          = getFragmentManager();
@@ -72,8 +82,7 @@ public class RealTimeWeatherFragment extends Fragment {
                 transaction.commit();
 
             }
-        });
-        return view;
+        };
     }
 
     @Override

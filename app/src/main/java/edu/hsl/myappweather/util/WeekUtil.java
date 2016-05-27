@@ -2,6 +2,8 @@ package edu.hsl.myappweather.util;
 
 /**
  * Created by Administrator on 2016/5/26.
+ * 根据获得的int值转换对应的中文数字
+ * 如果不是int类型则不进行转换
  */
 public class WeekUtil {
     public static String getWeek(Object week_object) {

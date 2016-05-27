@@ -28,7 +28,11 @@ public class WeatherRealTimeActivity extends AppCompatActivity {
         asyncTask("济南");
     }
 
-
+    /**
+     * 根据参数读取网络数据
+     * 目前仅支持国内城市
+     * 如果城市不支持则返回默认城市数据
+     */
     public void asyncTask(String cityname) {
         new AsyncTask<String, Void, String>() {
 
@@ -54,6 +58,9 @@ public class WeatherRealTimeActivity extends AppCompatActivity {
         }.execute(cityname);
     }
 
+    /**
+     * 加载默认显示的fragment
+     */
     private void setDefaultFragment() {
         FragmentManager     fm          = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();

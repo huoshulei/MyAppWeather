@@ -4,6 +4,8 @@ import edu.hsl.myappweather.R;
 
 /**
  * Created by Administrator on 2016/5/26.
+ * 天气图片适配
+ * 根据获取的天气id选取对应的图片
  */
 public class ImageUtil {
     //白天天气图标

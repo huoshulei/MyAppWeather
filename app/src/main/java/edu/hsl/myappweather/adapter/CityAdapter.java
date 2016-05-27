@@ -13,6 +13,7 @@ import edu.hsl.myappweather.R;
 
 /**
  * Created by Administrator on 2016/5/26.
+ * 城市名弹窗适配器
  */
 public class CityAdapter extends BaseAdapter {
     LayoutInflater mInflater;

@@ -22,6 +22,7 @@ import edu.hsl.myappweather.util.CityUtil;
 
 /**
  * Created by Administrator on 2016/5/26.
+ * 标题栏
  */
 public class TitleFragment extends Fragment {
     ImageView   mImageView;
@@ -38,7 +39,9 @@ public class TitleFragment extends Fragment {
         return view;
     }
 
-
+    /**
+     * 点击打开省名单弹窗
+     */
     @NonNull
     private View.OnClickListener getL() {
         return new View.OnClickListener() {
@@ -67,6 +70,10 @@ public class TitleFragment extends Fragment {
         };
     }
 
+    /**
+     * 根据各省打开对应的城市名单
+     * 参数为弹窗显示位置和大小布局参数
+     */
     @NonNull
     private AdapterView.OnItemClickListener getListener(final WindowManager manager, final int height) {
         return new AdapterView.OnItemClickListener() {
@@ -90,6 +97,10 @@ public class TitleFragment extends Fragment {
         };
     }
 
+    /**
+     * 读取选择的城市 并关闭弹窗
+     * adapter是城市名称数据
+     */
     @NonNull
     private AdapterView.OnItemClickListener getListenercity(final CityAdapter adapter) {
         return new AdapterView.OnItemClickListener() {

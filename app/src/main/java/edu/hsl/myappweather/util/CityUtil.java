@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2016/5/26.
+ * 城市名用于选择城市时的弹窗显示
  */
 public class CityUtil {
     static List<String> data = new ArrayList<>();
@@ -68,7 +69,7 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break;case 1:
+                    break; case 1:
                     data.add("唐山");
                     data.add("石家庄");
                     data.add("德州");

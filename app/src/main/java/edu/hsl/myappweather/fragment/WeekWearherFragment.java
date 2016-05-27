@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +41,17 @@ public class WeekWearherFragment extends Fragment {
         context = getActivity();
         mAdapter = new WeekAdapter(context);
         mListView.setAdapter(mAdapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mListView.setOnItemClickListener(getListener());
+        super.onResume();
+    }
+
+    /**
+     * 根据选择的日期跳转fragment 显示对应日期的详细天气
+     * 通过全局参数进行传递
+     */
+    @NonNull
+    private AdapterView.OnItemClickListener getListener() {
+        return new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 WeatherRealTimeActivity.id = i;
@@ -51,8 +62,7 @@ public class WeekWearherFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
-        });
-        super.onResume();
+        };
     }
 
     @Override
