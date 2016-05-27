@@ -11,6 +11,7 @@ public class CityUtil {
     static List<String> data = new ArrayList<>();
 
     public static List<String> getData() {
+        data.clear();
         data.add("山东省");
         data.add("河北省");
         data.add("日本省");
@@ -45,6 +46,7 @@ public class CityUtil {
         static List<String> data = new ArrayList<>();
 
         public static List<String> getData(int id) {
+            data.clear();
             switch (id) {
                 case 0:
                     data.add("济南");
@@ -69,7 +71,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 1:
+                    break;
+                case 1:
                     data.add("唐山");
                     data.add("石家庄");
                     data.add("德州");
@@ -92,7 +95,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 2:
+                    break;
+                case 2:
                     data.add("东京");
                     data.add("大阪");
                     data.add("神户");
@@ -115,7 +119,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 3:
+                    break;
+                case 3:
                     data.add("东京");
                     data.add("大阪");
                     data.add("济南");
@@ -138,7 +143,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 4:
+                    break;
+                case 4:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -161,7 +167,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 5:
+                    break;
+                case 5:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -184,7 +191,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 6:
+                    break;
+                case 6:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -207,7 +215,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 7:
+                    break;
+                case 7:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -230,7 +239,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 8:
+                    break;
+                case 8:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -253,7 +263,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 9:
+                    break;
+                case 9:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -276,7 +287,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 10:
+                    break;
+                case 10:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -299,7 +311,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 11:
+                    break;
+                case 11:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -322,7 +335,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 12:
+                    break;
+                case 12:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -345,7 +359,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 13:
+                    break;
+                case 13:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -368,7 +383,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 14:
+                    break;
+                case 14:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -391,7 +407,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 15:
+                    break;
+                case 15:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -414,7 +431,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 16:
+                    break;
+                case 16:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -437,7 +455,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 17:
+                    break;
+                case 17:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -460,7 +479,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 18:
+                    break;
+                case 18:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -483,7 +503,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 19:
+                    break;
+                case 19:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -506,7 +527,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 20:
+                    break;
+                case 20:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -529,7 +551,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 21:
+                    break;
+                case 21:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -552,7 +575,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 22:
+                    break;
+                case 22:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -575,7 +599,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 23:
+                    break;
+                case 23:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -598,7 +623,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 24:
+                    break;
+                case 24:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -621,7 +647,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 25:
+                    break;
+                case 25:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -644,7 +671,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 26:
+                    break;
+                case 26:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -667,7 +695,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 27:
+                    break;
+                case 27:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -690,7 +719,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 28:
+                    break;
+                case 28:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -713,7 +743,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 29:
+                    break;
+                case 29:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -736,7 +767,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 30:
+                    break;
+                case 30:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -759,7 +791,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 31:
+                    break;
+                case 31:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -782,7 +815,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 32:
+                    break;
+                case 32:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -805,7 +839,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 33:
+                    break;
+                case 33:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -828,7 +863,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 34:
+                    break;
+                case 34:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
@@ -851,7 +887,8 @@ public class CityUtil {
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");
-                    break; case 35:
+                    break;
+                case 35:
                     data.add("济南");
                     data.add("济南");
                     data.add("济南");

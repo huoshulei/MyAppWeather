@@ -24,7 +24,6 @@ public class WeatherUtil {
     public final static  String CITY_NAME = "cityname";
     public final static  String DTYPE     = "dtype";
     public final static  String KEY       = "key";
-    private static final String TAG       = "TitleFragment";
 
     /**
      * 通过构造函数调用getJson()方法读取网络数据

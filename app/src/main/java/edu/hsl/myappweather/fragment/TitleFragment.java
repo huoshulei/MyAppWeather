@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +27,6 @@ public class TitleFragment extends Fragment {
     ImageView   mImageView;
     PopupWindow window;
     PopupWindow window1;
-    private static final String TAG = "TitleFragment";
 
     @Nullable
     @Override
@@ -108,7 +106,6 @@ public class TitleFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 WeatherRealTimeActivity activity = (WeatherRealTimeActivity) getActivity();
                 activity.asyncTask(adapter.getItem(i));
-                Log.d(TAG, "onItemClick: " + adapter.getItem(i));
                 window1.dismiss();
                 window.dismiss();
             }

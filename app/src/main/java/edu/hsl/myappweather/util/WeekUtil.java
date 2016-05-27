@@ -6,9 +6,13 @@ package edu.hsl.myappweather.util;
  * 如果不是int类型则不进行转换
  */
 public class WeekUtil {
+
     public static String getWeek(Object week_object) {
         String week = null;
-        if (week_object instanceof Integer) {
+        if (week_object instanceof Integer || week_object instanceof Double) {
+            if (week_object instanceof Double) {
+                week_object = ((Double) week_object).intValue();
+            }
             int week_int = (int) week_object;
             switch (week_int) {
                 case 1:

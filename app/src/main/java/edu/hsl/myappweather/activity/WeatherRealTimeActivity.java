@@ -15,10 +15,10 @@ import edu.hsl.myappweather.fragment.WeekWearherFragment;
 import edu.hsl.myappweather.util.WeatherUtil;
 
 public class WeatherRealTimeActivity extends AppCompatActivity {
-    PM25LifeFragment        pm25;
-    RealTimeWeatherFragment realTime;
-    WeekInfoWeatherFragment weekInfo;
-    WeekWearherFragment     week;
+    public PM25LifeFragment        pm25;
+    public RealTimeWeatherFragment realTime;
+    public WeekInfoWeatherFragment weekInfo;
+    public WeekWearherFragment     week;
     public static int id = 0;
 
     @Override

@@ -54,13 +54,17 @@ public class WeekWearherFragment extends Fragment {
         return new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                WeatherRealTimeActivity activity = (WeatherRealTimeActivity) getActivity();
                 WeatherRealTimeActivity.id = i;
                 FragmentManager     fm          = getFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
                 week = new WeekInfoWeatherFragment();
+                transaction.remove(activity.week);
+                transaction.remove(activity.realTime);
                 transaction.replace(R.id.fl_week_info_weather, week, "");
                 transaction.addToBackStack(null);
                 transaction.commit();
+
             }
         };
     }
