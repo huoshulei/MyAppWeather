@@ -24,18 +24,20 @@ import edu.hsl.myappweather.util.WeekUtil;
 public class RealTimeWeatherFragment extends Fragment {
     //    ListView       lv_weather;
 //    RelativeLayout   rl_real;
-    TextView         tv_direct;//风向
-    TextView         tv_power;//风级
-    TextView         tv_time;//更新时间
-    TextView         tv_humidity;//湿度
-    TextView         tv_weather;//天气
-    TextView         tv_temperature;//温度
-    TextView         tv_date;//日期
-    TextView         tv_city_name;//地区
-    TextView         tv_week;//星期
-    TextView         tv_moon;//农历日期
-    ImageView        imageView;
-    PM25LifeFragment pm25;
+    TextView            tv_direct;//风向
+    TextView            tv_power;//风级
+    TextView            tv_time;//更新时间
+    TextView            tv_humidity;//湿度
+    TextView            tv_weather;//天气
+    TextView            tv_temperature;//温度
+    TextView            tv_date;//日期
+    TextView            tv_city_name;//地区
+    TextView            tv_week;//星期
+    TextView            tv_moon;//农历日期
+    ImageView           imageView;
+    PM25LifeFragment    pm25;
+    WeekWearherFragment week;
+    boolean isReal = true;
 
     @Nullable
     @Override
@@ -57,10 +59,18 @@ public class RealTimeWeatherFragment extends Fragment {
             public void onClick(View view) {
                 FragmentManager     fm          = getFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
-                pm25 = new PM25LifeFragment();
-                transaction.replace(R.id.fl_week_weather, pm25, "");
-                transaction.addToBackStack(null);
+                if (isReal) {
+                    isReal = false;
+                    pm25 = new PM25LifeFragment();
+                    transaction.replace(R.id.fl_week_weather, pm25);
+                } else {
+                    isReal = true;
+                    week = new WeekWearherFragment();
+                    transaction.replace(R.id.fl_week_weather, week);
+                }
+//                transaction.addToBackStack(null);
                 transaction.commit();
+
             }
         });
         return view;

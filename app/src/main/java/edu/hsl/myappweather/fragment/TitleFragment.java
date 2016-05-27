@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,19 +27,17 @@ public class TitleFragment extends Fragment {
     ImageView   mImageView;
     PopupWindow window;
     PopupWindow window1;
+    private static final String TAG = "TitleFragment";
 
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_fragment_title, container, false);
         mImageView = (ImageView) view.findViewById(R.id.im_city);
-        initEvent();
+        mImageView.setOnClickListener(getL());
         return view;
     }
 
-    public void initEvent() {
-        mImageView.setOnClickListener(getL());
-    }
 
     @NonNull
     private View.OnClickListener getL() {
@@ -52,14 +51,13 @@ public class TitleFragment extends Fragment {
                         .getSystemService(Context.WINDOW_SERVICE);
                 final int xPos   = (int) (manager.getDefaultDisplay().getWidth() / 1.35);
                 final int height = (int) (manager.getDefaultDisplay().getHeight() / 1.15);
-                if (window == null) {
-                    View inflater = View.inflate(getActivity(), R.layout.layout_city_name_list, null);
-                    listView = (ListView) inflater.findViewById(R.id.lv_city_name);
-                    adapter = new CityAdapter(getActivity(), CityUtil.getData());
-                    listView.setAdapter(adapter);
-                    window = new PopupWindow(inflater, 280, height);
-                }
-
+//                if (window == null) {
+                View inflater = View.inflate(getActivity(), R.layout.layout_city_name_list, null);
+                listView = (ListView) inflater.findViewById(R.id.lv_city_name);
+                adapter = new CityAdapter(getActivity(), CityUtil.getData());
+                listView.setAdapter(adapter);
+                window = new PopupWindow(inflater, 280, height);
+//                }
                 window.setFocusable(true);
                 window.setOutsideTouchable(true);
                 window.showAsDropDown(getView(), xPos, 0);
@@ -72,25 +70,22 @@ public class TitleFragment extends Fragment {
     @NonNull
     private AdapterView.OnItemClickListener getListener(final WindowManager manager, final int height) {
         return new AdapterView.OnItemClickListener() {
-
-
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                ListView          listViewCity = null;
-                final CityAdapter adapter      = new CityAdapter(getActivity(), CityUtil.CityName.getData(i));
-                if (window1 == null) {
-                    View inflater = View.inflate(getActivity(), R.layout.layout_city_name_list, null);
-                    listViewCity = (ListView) inflater.findViewById(R.id.lv_city_name);
-                    listViewCity.setAdapter(adapter);
-                    window1 = new PopupWindow(inflater, 300, height);
-                }
+                CityAdapter adapter = new CityAdapter(getActivity(), CityUtil.CityName.getData(i));
+//                if (window1 == null) {
+                View     inflater     = View.inflate(getActivity(), R.layout.layout_city_name_list, null);
+                ListView listViewCity = (ListView) inflater.findViewById(R.id.lv_city_name);
+                listViewCity.setAdapter(adapter);
+                window1 = new PopupWindow(inflater, 300, height);
+//                }
                 int xPos = (int) (manager.getDefaultDisplay().getWidth() / 1.9);
                 window1.setFocusable(true);
                 window1.setOutsideTouchable(true);
                 window1.showAsDropDown(getView(), xPos, 0);
                 assert listViewCity != null;
                 listViewCity.setOnItemClickListener(getListenercity(adapter));
-                window.dismiss();
+
             }
         };
     }
@@ -102,7 +97,9 @@ public class TitleFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 WeatherRealTimeActivity activity = (WeatherRealTimeActivity) getActivity();
                 activity.asyncTask(adapter.getItem(i));
+                Log.d(TAG, "onItemClick: " + adapter.getItem(i));
                 window1.dismiss();
+                window.dismiss();
             }
         };
     }

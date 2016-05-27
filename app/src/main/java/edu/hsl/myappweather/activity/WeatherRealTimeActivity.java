@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import edu.hsl.myappweather.R;
 import edu.hsl.myappweather.fragment.PM25LifeFragment;
@@ -40,7 +41,14 @@ public class WeatherRealTimeActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(String s) {
-                setDefaultFragment();
+                if (WeatherUtil.getJsonBean().getError_code() == 207301
+                        || WeatherUtil.getJsonBean().getResult() == null
+                        || WeatherUtil.getJsonBean().getReason().equals("暂不支持该城市")) {
+                    asyncTask("济南");
+                    Toast.makeText(WeatherRealTimeActivity.this, "暂不支持该城市", Toast.LENGTH_SHORT).show();
+                } else {
+                    setDefaultFragment();
+                }
                 super.onPostExecute(s);
             }
         }.execute(cityname);

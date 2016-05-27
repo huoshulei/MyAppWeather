@@ -20,21 +20,24 @@ import edu.hsl.myappweather.bean.JsonBean;
  * //聚合0fdb111d480794e6a0c6f1bdbfba2188/key
  */
 public class WeatherUtil {
-    public final static String APPKEY    = "0fdb111d480794e6a0c6f1bdbfba2188";
-    public final static String URL       = "http://op.juhe.cn/onebox/weather/query?";
-    public final static String CITY_NAME = "cityname";
-    public final static String DTYPE     = "dtype";
-    public final static String KEY       = "key";
+    public final static  String APPKEY    = "0fdb111d480794e6a0c6f1bdbfba2188";
+    public final static  String URL       = "http://op.juhe.cn/onebox/weather/query?";
+    public final static  String CITY_NAME = "cityname";
+    public final static  String DTYPE     = "dtype";
+    public final static  String KEY       = "key";
+    private static final String TAG       = "TitleFragment";
 
     public WeatherUtil(String city_name) {
         getJson(city_name);
+        Log.d(TAG, "getJson: 1" + city_name);
     }
 
     private static String json;
 
-    private void getJson(String city_name) {
+    private static void getJson(String city_name) {
         StringBuffer      sb            = null;
         HttpURLConnection urlConnection = null;
+        Log.d(TAG, "getJson:2 " + city_name);
         try {
             sb = new StringBuffer();
             String uri = Uri.parse(URL).buildUpon()
@@ -56,6 +59,7 @@ public class WeatherUtil {
             inputStream.close();
             reader.close();
         } catch (IOException e) {
+            Log.d(TAG, "getJson:3 " + city_name);
             e.printStackTrace();
         } finally {
             if (urlConnection != null) {
