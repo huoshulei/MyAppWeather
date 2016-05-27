@@ -1,6 +1,7 @@
 package edu.hsl.myappweather.util;
 
 import android.net.Uri;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -24,7 +25,6 @@ public class WeatherUtil {
     public final static String CITY_NAME = "cityname";
     public final static String DTYPE     = "dtype";
     public final static String KEY       = "key";
-
 
     public WeatherUtil(String city_name) {
         getJson(city_name);

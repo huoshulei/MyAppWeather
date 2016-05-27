@@ -46,6 +46,7 @@ public class JsonBean {
         }
 
         public class DataBean {
+
             private RealTimeBean      realtime;
             private LifeBean          life;
             private List<WeatherBean> weather;

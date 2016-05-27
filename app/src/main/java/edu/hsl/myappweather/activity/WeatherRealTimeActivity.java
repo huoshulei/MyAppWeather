@@ -14,42 +14,45 @@ import edu.hsl.myappweather.fragment.WeekWearherFragment;
 import edu.hsl.myappweather.util.WeatherUtil;
 
 public class WeatherRealTimeActivity extends AppCompatActivity {
-    WeatherUtil             util;
     PM25LifeFragment        pm25;
     RealTimeWeatherFragment realTime;
     WeekInfoWeatherFragment weekInfo;
     WeekWearherFragment     week;
+    public static int id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_weather_real_time);
+        asyncTask("济南");
+    }
+
+
+    public void asyncTask(String cityname) {
         new AsyncTask<String, Void, String>() {
 
             @Override
             protected String doInBackground(String... strings) {
-                WeatherUtil util = new WeatherUtil(strings[0]);
+                new WeatherUtil(strings[0]);
 
                 return "";
             }
 
             @Override
             protected void onPostExecute(String s) {
-                setContentView(R.layout.activity_weather_real_time);
                 setDefaultFragment();
-
-//                WeekAdapter adapter =new WeekAdapter(getApplicationContext());
                 super.onPostExecute(s);
             }
-        }.execute("济南");
-
+        }.execute(cityname);
     }
 
     private void setDefaultFragment() {
         FragmentManager     fm          = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         week = new WeekWearherFragment();
+        realTime = new RealTimeWeatherFragment();
+        transaction.replace(R.id.fl_real_time_weather, realTime);
         transaction.replace(R.id.fl_week_weather, week);
         transaction.commit();
-
     }
 }

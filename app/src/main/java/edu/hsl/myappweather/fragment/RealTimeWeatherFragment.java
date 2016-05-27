@@ -1,6 +1,8 @@
 package edu.hsl.myappweather.fragment;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -21,23 +23,24 @@ import edu.hsl.myappweather.util.WeekUtil;
  */
 public class RealTimeWeatherFragment extends Fragment {
     //    ListView       lv_weather;
-//    RelativeLayout rl_real;
-    TextView  tv_direct;//风向
-    TextView  tv_power;//风级
-    TextView  tv_time;//更新时间
-    TextView  tv_humidity;//湿度
-    TextView  tv_weather;//天气
-    TextView  tv_temperature;//温度
-    TextView  tv_date;//日期
-    TextView  tv_city_name;//地区
-    TextView  tv_week;//星期
-    TextView  tv_moon;//农历日期
-    ImageView imageView;
+//    RelativeLayout   rl_real;
+    TextView         tv_direct;//风向
+    TextView         tv_power;//风级
+    TextView         tv_time;//更新时间
+    TextView         tv_humidity;//湿度
+    TextView         tv_weather;//天气
+    TextView         tv_temperature;//温度
+    TextView         tv_date;//日期
+    TextView         tv_city_name;//地区
+    TextView         tv_week;//星期
+    TextView         tv_moon;//农历日期
+    ImageView        imageView;
+    PM25LifeFragment pm25;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.layout_fragment_real_time_weather, container);
+        View view = inflater.inflate(R.layout.layout_fragment_real_time_weather, container, false);
         tv_direct = (TextView) view.findViewById(R.id.tv_direct);//风向
         tv_power = (TextView) view.findViewById(R.id.tv_power);//风级
         tv_time = (TextView) view.findViewById(R.id.tv_time);//更新时间
@@ -49,6 +52,17 @@ public class RealTimeWeatherFragment extends Fragment {
         tv_week = (TextView) view.findViewById(R.id.tv_week);//星期
         tv_moon = (TextView) view.findViewById(R.id.tv_moon);//农历日期
         imageView = (ImageView) view.findViewById(R.id.imageView);
+        view.findViewById(R.id.rl_real).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager     fm          = getFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                pm25 = new PM25LifeFragment();
+                transaction.replace(R.id.fl_week_weather, pm25, "");
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
         return view;
     }
 
@@ -67,17 +81,6 @@ public class RealTimeWeatherFragment extends Fragment {
         tv_week.setText("星期" + WeekUtil.getWeek(realTime.getWeek()));//星期
         tv_moon.setText("农历" + realTime.getMoon());//农历日期
         imageView.setImageResource(ImageUtil.getImageDay(realTime.getWeather().getImg()));
-//        PM25Bean bean = mWeatherUtil.getJsonPM25();
-//        tv_data_time.setText("更新时间:" + bean.dateTime);
-//        tv_curpm.setText("污染指数:" + bean.curPm);
-//        tv_pm25.setText("PM2.5: " + bean.pm25);
-//        tv_pm10.setText("PM10:  " + bean.pm10);
-//        tv_des.setText(bean.des);
-//        tv_quality.setText("污染等级:" + bean.quality);
-//        data = mWeatherUtil.getJsonLife();
-//        adapter = new LifeAdapter(getApplicationContext(), data);
-//        lv_life.setAdapter(adapter);
-//        adapter.notifyDataSetChanged();
         super.onResume();
     }
 }

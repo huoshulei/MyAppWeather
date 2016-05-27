@@ -23,9 +23,9 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <fragment
+
+            <FrameLayout
                 android:id="@+id/fl_real_time_weather"
-                android:name="edu.hsl.myappweather.fragment.RealTimeWeatherFragment"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"/>
 
